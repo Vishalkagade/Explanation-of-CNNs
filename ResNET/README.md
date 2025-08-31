@@ -9,6 +9,8 @@ But then I encountered **ResNet** and realized something surprising: while VGG s
 This article walks through that thought process — step by step — from VGG, to its problems, to ResNet’s elegant solution.  
 
 ---
+<img width="1364" height="560" alt="image" src="https://github.com/user-attachments/assets/5310236f-cb83-461e-a62f-169cf162dd66" />
+
 
 ## 🔹 Step 1: Why VGG was a breakthrough  
 
