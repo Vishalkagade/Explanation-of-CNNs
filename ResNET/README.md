@@ -103,25 +103,46 @@ This explains why **deeper ResNets never perform worse** — at worst, they can 
 
 ### 📐 Mathematical Perspective  
 
-Consider L layers stacked without residuals:  
+We start with a plain deep network:
 
-H(x) = f_L( f_{L-1}( … f_1(x) … ))  
+$$
+H(x) = f_L\big( f_{L-1}(\dots f_1(x) \dots ) \big)
+$$
 
-Gradients propagate through a long chain of derivatives:  
+Gradients propagate through a long chain of derivatives:
 
-∂L/∂x = ∏ (∂f_i/∂f_{i-1})  
+$$
+\frac{\partial L}{\partial x} = \prod_{i=1}^L \frac{\partial f_i}{\partial f_{i-1}}
+$$
 
-If any ∂f_i < 1, the product shrinks (vanishing). If >1, it explodes.  
+If any term 
+$\frac{\partial f_i}{\partial f_{i-1}} < 1$,  
+the product shrinks → **vanishing gradients**.  
 
-Now with residuals:  
+If any term 
+$\frac{\partial f_i}{\partial f_{i-1}} > 1$,  
+the product explodes → **exploding gradients**.  
 
-H(x) = F(x) + x  
+---
 
-∂L/∂x = ∂L/∂H(x) · (∂F(x)/∂x + I)  
+Now consider residual learning:
 
-That extra **+I (identity matrix)** term ensures gradients can bypass F(x), keeping them stable.  
+$$
+H(x) = F(x) + x
+$$
 
-👉 Skip connections are like **gradient highways** — preventing signals from dying as they travel back.  
+The gradient becomes:
+
+$$
+\frac{\partial L}{\partial x} 
+= \frac{\partial L}{\partial H(x)} \cdot 
+\left( \frac{\partial F(x)}{\partial x} + I \right)
+$$
+
+The extra **+I** term provides a direct gradient path,  
+so gradients can bypass $F(x)$ entirely if needed —  
+like a **highway for information flow**
+
 
 ---
 
