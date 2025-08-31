@@ -1,4 +1,5 @@
-# 🚀 From ResNet to EfficientNet: A Guided Learning Journey  
+# 🚀 From ResNet to EfficientNet: A Guided Learning Journey 
+<img width="645" height="507" alt="efficent_net" src="https://github.com/user-attachments/assets/370aa04a-047b-4eec-80d7-b032d0aa150d" />
 
 When I first heard about EfficientNet, my reaction was:  
 
